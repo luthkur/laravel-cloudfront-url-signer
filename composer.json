@@ -20,7 +20,7 @@
   "require": {
     "php": "^7.3.0|^8.0",
     "illuminate/support": "^6.0|^7.0|^8.0",
-    "aws/aws-sdk-php": "^3.52"
+    "aws/aws-sdk-php": "^3.182.0"
   },
   "require-dev": {
     "orchestra/testbench": "^6.0",

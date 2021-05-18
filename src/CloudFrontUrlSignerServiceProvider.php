@@ -29,7 +29,7 @@ class CloudFrontUrlSignerServiceProvider extends ServiceProvider
                 throw new InvalidKeyPairId('Key pair id cannot be empty');
             }
 
-            return new CloudFrontUrlSigner(new \Aws\CloudFront\UrlSigner($config['key_pair_id'], $config['private_key_path']));
+            return new CloudFrontUrlSigner(new \Aws\CloudFront\UrlSigner($config['key_pair_id'], $config['private_key']));
         });
 
         $this->app->alias(UrlSigner::class, 'cloudfront-url-signer');

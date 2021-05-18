@@ -7,7 +7,7 @@ use DateTimeZone;
 
 class SignatureGenerationTest extends TestCase
 {
-    private $dummyPrivateKeyPath = 'tests/dummy-key.pem';
+    private $dummyPrivateKey;
     private $dummyKeyPairId = 'dummyKeyPairId';
     private $dummyUrl = 'http://myapp.com';
 
@@ -15,8 +15,10 @@ class SignatureGenerationTest extends TestCase
     {
         parent::setUp();
 
+        $this->dummyPrivateKey = file_get_contents('tests/dummy-key.pem');
+
         config(['cloudfront-url-signer.key_pair_id' => $this->dummyKeyPairId]);
-        config(['cloudfront-url-signer.private_key_path' => $this->dummyPrivateKeyPath]);
+        config(['cloudfront-url-signer.private_key' => $this->dummyPrivateKey]);
     }
 
     /** @test */
