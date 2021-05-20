@@ -31,12 +31,12 @@ class CloudFrontUrlSigner implements UrlSigner
      * @return string
      * @throws \Dreamonkey\CloudFrontUrlSigner\Exceptions\InvalidExpiration
      */
-    public function sign(string $url, $expiration = null): string
+    public function sign(string $url, $expiration = null, $policy == null): string
     {
         $expiration = $this->getExpirationTimestamp($expiration ??
             config('cloudfront-url-signer.default_expiration_time_in_days'));
-
-        return $this->urlSigner->getSignedUrl($url, $expiration);
+        
+        return $this->urlSigner->getSignedUrl($url, $expiration, $policy);
     }
 
     /**
